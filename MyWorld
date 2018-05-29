@@ -1,0 +1,123 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo) 
+ 
+/**
+ * Alyssa DeGuzman
+ * Period: 5 
+ * 5/16/18
+ */
+public class MyWorld extends World
+{
+     Counter counter = new Counter();
+     public Counter getCounter()
+     {
+         return counter;
+        }
+
+    //GreenfootSound music = new GreenfootSound("song.wav");
+    /**
+     * Constructor for objects of class MyWorld.
+     * 
+     */
+    public MyWorld()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(800, 800, 1); 
+
+        prepare();
+        Bombs[] bombs = new Bombs [3];
+        for ( int i=0; i < bombs.length;i++)
+        {
+            bombs[i] = new Bombs();
+            int bombX  = Greenfoot.getRandomNumber(getWidth());
+            int bombY = Greenfoot.getRandomNumber (getHeight());
+            addObject (bombs[i], bombX, bombY);
+        }
+
+    }
+  
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare() 
+    {
+        addObject(counter, 100, 40);
+
+        
+        Turtle turtle = new Turtle();
+        addObject(turtle,50,555);
+        Dolphin dolphin = new Dolphin();
+        addObject(dolphin,720,553);
+        Platform platform = new Platform(200, 25);
+        addObject(platform, 400, 500);
+
+        platform.setLocation(450,450);
+        turtle.setLocation(34,843);
+        dolphin.setLocation(841,842);
+        platform.setLocation(431,780);
+        turtle.setLocation(35,777);
+        dolphin.setLocation(766,773);
+        platform.setLocation(402,713);
+        platform.setLocation(399,713);
+        platform.setLocation(393,712);
+        Platform platform2 = new Platform();
+        addObject(platform2,627,549);
+        platform2.setLocation(616,634);
+        Platform platform3 = new Platform();
+        addObject(platform3,166,635);
+        Platform platform4 = new Platform();
+        addObject(platform4,765,532);
+        platform4.setLocation(742,526);
+        Platform platform5 = new Platform();
+        addObject(platform5,44,521);
+        platform5.setLocation(60,524);
+        Platform platform6 = new Platform();
+        addObject(platform6,404,564);
+        platform6.setLocation(399,563);
+        platform6.setLocation(399,558);
+        Platform platform7 = new Platform();
+        addObject(platform7,573,434);
+        Platform platform8 = new Platform();
+        addObject(platform8,220,430);
+        Platform platform9 = new Platform();
+        addObject(platform9,404,332);
+        Platform platform10 = new Platform(900, 40);
+        addObject(platform10,404,65);
+        removeObject(platform10);
+        Platform platform11 = new Platform(900, 15);
+        addObject(platform11,389,64);
+        Platform platform12 = new Platform(30, 20);
+        addObject(platform12,677,332); 
+        removeObject(platform12);
+        Platform platform13 = new Platform();
+        addObject(platform13,699,304);
+        Platform platform14 = new Platform();
+        addObject(platform14,124,302);
+        Platform platform15 = new Platform();
+        addObject(platform15,554,210);
+        removeObject(platform15);
+        Platform platform16 = new Platform(100, 15);
+        addObject(platform16,553,208);
+        platform16.setLocation(530,211);
+        Platform platform17 = new Platform(100, 15);
+        addObject(platform17,293,208);
+        Platform platform18 = new Platform(100, 15);
+        addObject(platform18,730,157);
+        Platform platform19 = new Platform(100, 15);
+        addObject(platform19,124,162);
+        removeObject(platform11);
+        
+        
+        Finish finish = new Finish(900, 15);
+        addObject(finish,406,74);
+        Finish finish2 = new Finish();
+        addObject(finish2,389,29);
+        removeObject(finish2);
+        Finish finish3 = new Finish();
+        addObject(finish3,405,43);
+    }
+  // public void act()
+   //{
+   //    music.play();
+    //}
+}
