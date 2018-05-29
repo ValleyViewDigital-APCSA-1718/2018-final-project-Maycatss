@@ -1,0 +1,42 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Predator here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Dolphin extends Players
+{
+   public void move() 
+    {
+        int y = getY();
+        int x = getX();
+        
+        if (Greenfoot.isKeyDown("Y")&& solidGround())jump();
+        if(Greenfoot.isKeyDown("U"))x-=3;//moves left
+        if(Greenfoot.isKeyDown("I"))x+=3;// moves right
+        if (this.isTouching(Bombs.class))
+           {
+             
+             removeTouching (Dolphin.class);
+             Players.setPlayers(Players.GetPlayers()-1);
+           }
+          
+  
+      
+      if( numofp==0)// (//this.isTouching(Finish.class)|| numofp ==0)
+      {
+          
+          GameOver gameover = new GameOver();
+          
+          Greenfoot.setWorld(gameover);
+          
+        }
+       setLocation(x,y);
+     
+    }
+       
+    }
+    
+   
