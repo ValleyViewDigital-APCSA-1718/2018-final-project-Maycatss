@@ -1,0 +1,27 @@
+import greenfoot.*;  //  (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Finish here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Finish extends Actor
+{
+    public Finish()
+    {
+        this(120,20);
+        setImage(new GreenfootImage ("Finish Line", 50, Color.WHITE, Color.BLUE));
+    
+        //setImage(new GreenfootImage("GAME OVER", 48, Color.WHITE, Color.BLUE));
+    }
+
+
+ 
+    public Finish(int width, int height)
+    {
+        GreenfootImage image =getImage();
+        image.scale(width, height);
+        setImage(image);
+    }
+}
