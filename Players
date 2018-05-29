@@ -1,0 +1,89 @@
+ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Players here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Players extends Actor
+{
+    static int numofp = 4;
+    private final int GRAVITY = 1;
+    int velocity;
+    public Players()
+    {
+        velocity=0;
+    }
+    public void act() 
+    {
+        fall();
+        move();
+        //Gameover();
+    }
+    
+    public void fall ()
+    {
+       setLocation(getX(), getY() + velocity);
+       if(solidGround()) velocity = 0;
+       {
+       while (solidGround())
+       {
+           setLocation (getX(), getY() -1);
+        }
+           setLocation (getX(), getY()+ 1);
+       }
+        
+        if (velocity < 0 && HeadBump()) velocity= 0;
+       else velocity += GRAVITY;
+    
+}
+public void jump()
+{
+    velocity = -15;
+}
+public void move() 
+    {
+        int y = getY();
+        int x = getX();
+        
+        if(Greenfoot.isKeyDown("E"))x-=3;//moves left
+        if(Greenfoot.isKeyDown("R"))x+=3;// moves right
+        setLocation(x,y);
+    }
+    public boolean solidGround()
+    {
+        boolean solidGround = false;
+       if ( getY() > getWorld().getHeight() - 50) solidGround= true;
+       
+       int imageWidth = getImage().getWidth();
+       int imageHeight = getImage().getHeight();
+        if (getOneObjectAtOffset( imageWidth/-2 , imageHeight/2, Platform.class)!= null ||
+        (getOneObjectAtOffset( imageWidth/2 , imageHeight/2, Platform.class)!= null))
+        solidGround =true;
+        if (getOneObjectAtOffset( imageWidth/-2 , imageHeight/2, Finish.class)!= null ||
+        (getOneObjectAtOffset( imageWidth/2 , imageHeight/2, Finish.class)!= null))
+        solidGround =true;
+        return solidGround;
+    }
+    public boolean HeadBump()
+    {
+        boolean HeadBump = false;
+       int imageWidth = getImage().getWidth();
+       int imageHeight = getImage().getHeight();
+        if (getOneObjectAtOffset( imageWidth/-2 , imageHeight/-2, Platform.class)!= null ||
+        (getOneObjectAtOffset( imageWidth/2 , imageHeight/-2, Platform.class)!= null))
+        HeadBump =true;
+        return HeadBump;
+    }
+ 
+    public static int GetPlayers()
+    {
+        return numofp;
+        
+    }
+    public static void setPlayers (int player)
+    {
+        numofp = player;
+    }
+}
